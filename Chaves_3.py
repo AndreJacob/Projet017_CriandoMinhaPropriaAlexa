@@ -13,7 +13,7 @@ client = mqtt.Client()  # Cria uma instância do cliente MQTT
 client.connect(BROKER, PORT, 60)  # Conecta o cliente MQTT ao broker
 
 # Configuração da API do OpenAI (ChatGPT)
-openai.api_key = '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'  # Sua chave de API OpenAI
+openai.api_key = 'minha chave api'  # Sua chave de API OpenAI
 
 # Função para interação com o ChatGPT
 def pesquisar_com_gpt(pergunta):
