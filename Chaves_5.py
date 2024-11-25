@@ -63,7 +63,7 @@ def processar_comando(comando):
         print("Diga um comando para a lâmpada.")  # Solicita comando para a lâmpada
         return  # Retorna, sem processar mais comandos
 
-    if comando == "ligar lâmpada":  # Se o comando for "ligar lâmpada"
+    if comando == "ligar cozinha":  # Se o comando for "ligar lâmpada"
         client.publish(TOPIC, "1")  # Envia comando MQTT para ligar a lâmpada
         print("Comando enviado: Ligar lâmpada")  # Imprime que o comando foi enviado
         
@@ -74,7 +74,7 @@ def processar_comando(comando):
             
             desligar_led3()  # Desliga o LED 3 após o comando ser enviado
             
-    elif comando == "desligar lâmpada":  # Se o comando for "desligar lâmpada"
+    elif comando == "desligar cozinha":  # Se o comando for "desligar lâmpada"
         client.publish(TOPIC, "0")  # Envia comando MQTT para desligar a lâmpada
         print("Comando enviado: Desligar lâmpada")  # Imprime que o comando foi enviado
          
@@ -82,13 +82,73 @@ def processar_comando(comando):
         pygame.mixer.music.play() # Reproduz o áudio
         while pygame.mixer.music.get_busy(): # Aguarda até que o áudio termine
             pygame.time.Clock().tick(10)
+            
+    elif comando == "ainda não está pronto":  # Se o comando for "desligar lâmpada"
+         
+        pygame.mixer.music.load("chaves-teria-sido-melhor-ir-ver-o-pele.mp3")  # Carrega o arquivo MP3
+        pygame.mixer.music.play() # Reproduz o áudio
+        while pygame.mixer.music.get_busy(): # Aguarda até que o áudio termine
+            pygame.time.Clock().tick(10)
         
-        pygame.mixer.music.load("chaves-senhor-barriga-tinha-que-ser-o-chaves-de-novo.mp3")  # Carrega o arquivo MP3
+        
+            
+        desligar_led3()  # Desliga o LED 3 após o comando ser enviado
+        
+    elif comando == "ligar sala":  # Se o comando for "ligar lâmpada"
+        client.publish(TOPIC, "2")  # Envia comando MQTT para ligar a lâmpada
+        print("Comando enviado: Ligar led")  # Imprime que o comando foi enviado
+        
+        pygame.mixer.music.load("chaves-ta-bom-mas-nao-se-irrite.mp3")  # Carrega o arquivo MP3
         pygame.mixer.music.play() # Reproduz o áudio
         while pygame.mixer.music.get_busy(): # Aguarda até que o áudio termine
             pygame.time.Clock().tick(10)
             
+            desligar_led3()  # Desliga o LED 3 após o comando ser enviado
+            
+    elif comando == "desligar sala":  # Se o comando for "desligar lâmpada"
+        client.publish(TOPIC, "3")  # Envia comando MQTT para desligar a lâmpada
+        print("Comando enviado: Desligar led")  # Imprime que o comando foi enviado
+         
+        pygame.mixer.music.load("chaves-queBurro.mp3")  # Carrega o arquivo MP3
+        pygame.mixer.music.play() # Reproduz o áudio
+        while pygame.mixer.music.get_busy(): # Aguarda até que o áudio termine
+            pygame.time.Clock().tick(10)
+        
+        
+            
         desligar_led3()  # Desliga o LED 3 após o comando ser enviado
+    
+    elif comando == "ligar tudo":  # Se o comando for "ligar lâmpada"
+        client.publish(TOPIC, "2")  # Envia comando MQTT para ligar a lâmpada
+        time.sleep(0.5)
+        client.publish(TOPIC, "1")  # Envia comando MQTT para ligar a lâmpada
+        print("Comando enviado: Ligar led")  # Imprime que o comando foi enviado
+        
+        pygame.mixer.music.load("chaves-essa-e-muito-facil-faca-outra-mais-dificil.mp3")  # Carrega o arquivo MP3
+        pygame.mixer.music.play() # Reproduz o áudio
+        while pygame.mixer.music.get_busy(): # Aguarda até que o áudio termine
+            pygame.time.Clock().tick(10)
+            
+            desligar_led3()  # Desliga o LED 3 após o comando ser enviado
+            
+    elif comando == "desligar tudo":  # Se o comando for "desligar lâmpada"
+        client.publish(TOPIC, "3")  # Envia comando MQTT para desligar a lâmpada
+        time.sleep(0.5)
+        client.publish(TOPIC, "0")  # Envia comando MQTT para desligar a lâmpada
+        
+        print("Comando enviado: Desligar led")  # Imprime que o comando foi enviado
+         
+            
+        pygame.mixer.music.load("chaves-kiko-quico-que-coisa-nao.mp3")  # Carrega o arquivo MP3
+        pygame.mixer.music.play() # Reproduz o áudio
+        while pygame.mixer.music.get_busy(): # Aguarda até que o áudio termine
+            pygame.time.Clock().tick(10)
+        
+       
+            
+        desligar_led3()  # Desliga o LED 3 após o comando ser enviado
+        
+        
     elif comando == "sair do programa":  # Se o comando for "sair do programa"
         print("Saindo do programa...")  # Imprime que o programa está sendo encerrado
         client.disconnect()  # Desconecta do broker MQTT
