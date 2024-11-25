@@ -14,7 +14,7 @@ client.connect(BROKER, PORT, 60)  # Conecta o cliente MQTT ao broker
 
 
 # Configuração da API do OpenAI (ChatGPT)
-openai.api_key = 'minha chave api'  # Sua chave de API OpenAI
+openai.api_key = ''  # Sua chave de API OpenAI
 
 # Função para interação com o ChatGPT
 def pesquisar_com_gpt(pergunta):

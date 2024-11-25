@@ -2,7 +2,7 @@
 import openai
 
 # Substitua 'sua_chave_api' pela sua chave real
-openai.api_key = "minha chave api"
+openai.api_key = ""
 
 
 response = openai.Completion.create(
